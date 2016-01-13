@@ -9,6 +9,8 @@ import fr.inrialpes.exmo.align.impl.method.NameEqAlignment;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.semanticweb.owl.align.AlignmentException;
 import org.semanticweb.owl.align.AlignmentProcess;
 
@@ -17,8 +19,17 @@ import org.semanticweb.owl.align.AlignmentProcess;
  *
  * @author MC
  */
-public class Alignment {
+public class Aligner {
 
+    public static void main(String[] args) {
+        try {
+            generateAlign();
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(Aligner.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (AlignmentException ex) {
+            Logger.getLogger(Aligner.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     public static void generateAlign() throws URISyntaxException, AlignmentException {
         URI onto1 = new URI("http://oaei.ontologymatching.org/tests/101/onto.rdf");
         URI onto2 = new URI("http://oaei.ontologymatching.org/tests/304/onto.rdf");
