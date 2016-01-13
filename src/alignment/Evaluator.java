@@ -20,7 +20,7 @@ import org.semanticweb.owl.align.AlignmentException;
 public class Evaluator {
 
     public static void evaluate(Alignment alignment) throws URISyntaxException, AlignmentException {
-        URI reference = new URI("http://oaei.ontologymatching.org/tests/304/ refalign.rdf");
+        URI reference = new URI("http://oaei.ontologymatching.org/tests/304/refalign.rdf");
         AlignmentParser aparser = new AlignmentParser(0);
         Alignment refalign = aparser.parse(reference);
         PRecEvaluator evaluator = new PRecEvaluator(refalign, alignment);

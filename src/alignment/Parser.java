@@ -23,7 +23,7 @@ public class Parser {
 
     public void parseRDF(String path) {
         AlignmentParser aparser = new AlignmentParser(0);
-// Attention au PATH => file:/ => Example : file:/home/cassia/web-sem/fichier -align.rdf 
+        // Attention au PATH => file:/ => Example : file:/home/cassia/web-sem/fichier -align.rdf 
         Alignment al = null;
         try {
             al = aparser.parse(new URI(path));

@@ -23,11 +23,10 @@ import org.semanticweb.owl.align.AlignmentVisitor;
  */
 public class Renderer {
 
-    public static void render(Alignment alignment) throws FileNotFoundException, UnsupportedEncodingException, AlignmentException {
+    public static void render(Alignment alignment, String path) throws FileNotFoundException, UnsupportedEncodingException, AlignmentException {
         PrintWriter writer;
-        FileOutputStream f = new FileOutputStream(new File("PATH"));
-        writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(f,
-                "UTF -8")), true);
+        FileOutputStream f = new FileOutputStream(new File(path));
+        writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(f,"UTF-8")), true);
         AlignmentVisitor renderer = new RDFRendererVisitor(writer);
         alignment.render(renderer);
         writer.flush();
