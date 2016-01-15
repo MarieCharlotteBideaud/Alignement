@@ -1,0 +1,198 @@
+<?xml version='1.0' encoding='utf-8' standalone='no'?>
+<rdf:RDF xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'
+         xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+         xmlns:xsd='http://www.w3.org/2001/XMLSchema#'
+         xmlns:alext='http://exmo.inrialpes.fr/align/ext/1.0/'
+         xmlns:align='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'>
+<Alignment>
+  <xml>yes</xml>
+  <level>0</level>
+  <type>**</type>
+  <onto1>
+    <Ontology rdf:about="http://www.irit.fr/recherches/MELODI/ontologies/FilmographieV1.owl">
+      <location>http://www.irit.fr/recherches/MELODI/ontologies/FilmographieV1.owl</location>
+    </Ontology>
+  </onto1>
+  <onto2>
+    <Ontology rdf:about="file:///Users/MC/Documents/5A/RepConn/Alignement/dbpedia_2014.owl">
+      <location>file:///Users/MC/Documents/5A/RepConn/Alignement/dbpedia_2014.owl</location>
+    </Ontology>
+  </onto2>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.irit.fr/recherches/MELODI/ontologies/FilmographieV1.owl#aPourDateNaissance'/>
+      <entity2 rdf:resource='http://dbpedia.org/ontology/dateOfBurial'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7142857313156128</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.irit.fr/recherches/MELODI/ontologies/FilmographieV1.owl#Film'/>
+      <entity2 rdf:resource='http://dbpedia.org/ontology/Film'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.irit.fr/recherches/MELODI/ontologies/FilmographieV1.owl#Oeuvre'/>
+      <entity2 rdf:resource='http://dbpedia.org/ontology/Work'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.irit.fr/recherches/MELODI/ontologies/FilmographieV1.owl#Artiste'/>
+      <entity2 rdf:resource='http://dbpedia.org/ontology/Artist'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.irit.fr/recherches/MELODI/ontologies/FilmographieV1.owl#aPourDateSortie'/>
+      <entity2 rdf:resource='http://dbpedia.org/ontology/releaseDate'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8571428656578064</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://purl.org/dc/terms/title'/>
+      <entity2 rdf:resource='http://dbpedia.org/ontology/title'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.irit.fr/recherches/MELODI/ontologies/FilmographieV1.owl#PrixDecerne'/>
+      <entity2 rdf:resource='http://dbpedia.org/ontology/Award'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.irit.fr/recherches/MELODI/ontologies/FilmographieV1.owl#DessinAnime'/>
+      <entity2 rdf:resource='http://dbpedia.org/ontology/Cartoon'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.irit.fr/recherches/MELODI/ontologies/FilmographieV1.owl#aPourTitre'/>
+      <entity2 rdf:resource='http://dbpedia.org/ontology/title'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.irit.fr/recherches/MELODI/ontologies/FilmographieV1.owl#seDerouleDans'/>
+      <entity2 rdf:resource='http://dbpedia.org/ontology/takePlace'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7142857313156128</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.irit.fr/recherches/MELODI/ontologies/FilmographieV1.owl#Competition'/>
+      <entity2 rdf:resource='http://dbpedia.org/ontology/Competition'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.irit.fr/recherches/MELODI/ontologies/FilmographieV1.owl#decerne'/>
+      <entity2 rdf:resource='http://dbpedia.org/ontology/award'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8333333134651184</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.irit.fr/recherches/MELODI/ontologies/FilmographieV1.owl#Personne'/>
+      <entity2 rdf:resource='http://dbpedia.org/ontology/Person'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.irit.fr/recherches/MELODI/ontologies/FilmographieV1.owl#FestivalDeCinema'/>
+      <entity2 rdf:resource='http://dbpedia.org/ontology/FilmFestival'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7333333492279053</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.irit.fr/recherches/MELODI/ontologies/FilmographieV1.owl#Pays'/>
+      <entity2 rdf:resource='http://dbpedia.org/ontology/Country'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.irit.fr/recherches/MELODI/ontologies/FilmographieV1.owl#Evenement'/>
+      <entity2 rdf:resource='http://dbpedia.org/ontology/Event'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.irit.fr/recherches/MELODI/ontologies/FilmographieV1.owl#Ville'/>
+      <entity2 rdf:resource='http://dbpedia.org/ontology/City'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.irit.fr/recherches/MELODI/ontologies/FilmographieV1.owl#GrandPrix'/>
+      <entity2 rdf:resource='http://dbpedia.org/ontology/GrandPrix'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.irit.fr/recherches/MELODI/ontologies/FilmographieV1.owl#LieuAdministratif'/>
+      <entity2 rdf:resource='http://dbpedia.org/ontology/AdministrativeRegion'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.761904776096344</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://xmlns.com/foaf/0.1/firstName'/>
+      <entity2 rdf:resource='http://dbpedia.org/ontology/firstGame'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8999999761581421</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://xmlns.com/foaf/0.1/firstName'/>
+      <entity2 rdf:resource='http://dbpedia.org/ontology/firstPlace'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7272727489471436</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.irit.fr/recherches/MELODI/ontologies/FilmographieV1.owl#Lieu'/>
+      <entity2 rdf:resource='http://dbpedia.org/ontology/Place'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+</Alignment>
+</rdf:RDF>

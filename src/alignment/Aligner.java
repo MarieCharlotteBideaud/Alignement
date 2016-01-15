@@ -29,7 +29,7 @@ public class Aligner {
 
     public static void main(String[] args) {
         try {
-            generateAlign(1);
+            generateAlign(0);
         } catch (URISyntaxException ex) {
             Logger.getLogger(Aligner.class.getName()).log(Level.SEVERE, null, ex);
         } catch (AlignmentException ex) {
@@ -43,19 +43,24 @@ public class Aligner {
 
     // 0 pour l'initial
     // 1 pour le NewMatcher
+    // 2 pour LogMap
     public static void generateAlign(int matcher) throws URISyntaxException, AlignmentException, FileNotFoundException, UnsupportedEncodingException {
-        URI onto1 = new URI("http://oaei.ontologymatching.org/tests/101/onto.rdf");
-        URI onto2 = new URI("http://oaei.ontologymatching.org/tests/304/onto.rdf");
+        // URI onto1 = new URI("http://oaei.ontologymatching.org/tests/101/onto.rdf");
+        // Cinema : 
+        URI onto1 = new URI("http://www.irit.fr/recherches/MELODI/ontologies/FilmographieV1.owl");
+        // URI onto2 = new URI("http://oaei.ontologymatching.org/tests/304/onto.rdf");
+        // DBPedia : 
+        URI onto2 = new URI("file:///Users/MC/Documents/5A/RepConn/Alignement/dbpedia_2014.owl");
         if (matcher == 0) {
-            AlignmentProcess alignment = new NameAndPropertyAlignment();
+            AlignmentProcess alignment = new SMOANameAlignment();
             alignment.init(onto1, onto2);
             alignment.align(null, new Properties());
             System.out.println("Num corresp. générées : " + alignment.nbCells());
             // Ecriture dans un fichier rdf 
-            Renderer.render(alignment, "align.rdf");
+            Renderer.render(alignment, "alignInitialMatcher.rdf");
             // Evaluation
             Evaluator.evaluate(alignment);
-        } else {
+        } else if (matcher == 1) {
             NewMatcher nm = new NewMatcher();
             try {
                 nm.init(onto1, onto2);
@@ -64,12 +69,29 @@ public class Aligner {
             } catch (OntowrapException ex) {
                 Logger.getLogger(Aligner.class.getName()).log(Level.SEVERE, null, ex);
             }
-            nm.align(null, new Properties());
+            // 3ème param est à 0 si on utilise le new matcher de base, 1 si on utilise la distance de Levenshtein
+            nm.align(null, new Properties(), 1);
             System.out.println("Num corresp. générées : " + nm.nbCells());
             // Ecriture dans un fichier rdf 
-            Renderer.render(nm, "align.rdf");
+            Renderer.render(nm, "alignNewMatcher.rdf");
             // Evaluation
             Evaluator.evaluate(nm);
+        } else if (matcher == 2) {
+            LogMap lm = new LogMap();
+            try {
+
+                lm.init(onto1, onto2);
+
+            } catch (OWLOntologyCreationException ex) {
+                Logger.getLogger(Aligner.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (OntowrapException ex) {
+                Logger.getLogger(Aligner.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            lm.align();
+            // Ecriture dans un fichier rdf 
+            Renderer.render(lm, "alignLogMap.rdf");
+            // Evaluation
+            Evaluator.evaluate(lm);
         }
 
     }

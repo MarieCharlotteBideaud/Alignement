@@ -25,7 +25,7 @@ import fr.inrialpes.exmo.ontowrap.OntowrapException;
 
 /**
  ** Copyright (C) IRIT, 2015-2016
-*
+ *
  */
 public class NewMatcher extends URIAlignment {
 
@@ -74,49 +74,87 @@ public class NewMatcher extends URIAlignment {
      *
      * @param alignment
      * @param param
+     * @param Levenstein
      * @throws AlignmentException
      * @throws URISyntaxException
      */
-    public void align(Alignment alignment, Properties param) {
+    public void align(Alignment alignment, Properties param, int Levenstein) {
         // For the classes : no optmisation cartesian product !
-        for (OWLEntity cl1 : ontology1.getClassesInSignature()) {
-            for (OWLEntity cl2 : ontology2.getClassesInSignature()) {
-                double confidence = matchDist(cl1, cl2);
-                if (confidence > 0) {
-                    try {
-                        addAlignCell(cl1.getIRI().toURI(), cl2.getIRI().toURI(), "=", confidence);
-                    } catch (Exception e) {
-                        System.out.println(e.toString());
+        if (Levenstein == 0) {
+            for (OWLEntity cl1 : ontology1.getClassesInSignature()) {
+                for (OWLEntity cl2 : ontology2.getClassesInSignature()) {
+                    double confidence = match(cl1, cl2);
+                    if (confidence > 0) {
+                        try {
+                            addAlignCell(cl1.getIRI().toURI(), cl2.getIRI().toURI(), "=", confidence);
+                        } catch (Exception e) {
+                            System.out.println(e.toString());
+                        }
+                    }
+                }
+            }
+            for (OWLEntity cl1 : ontology1.getDataPropertiesInSignature()) {
+                for (OWLEntity cl2 : ontology2.getDataPropertiesInSignature()) {
+                    double confidence = match(cl1, cl2);
+                    if (confidence > 0) {
+                        try {
+                            addAlignCell(cl1.getIRI().toURI(), cl2.getIRI().toURI(), "=", confidence);
+                        } catch (Exception e) {
+                            System.out.println(e.toString());
+                        }
+                    }
+                }
+            }
+            for (OWLEntity cl1 : ontology1.getObjectPropertiesInSignature()) {
+                for (OWLEntity cl2 : ontology2.getObjectPropertiesInSignature()) {
+                    double confidence = match(cl1, cl2);
+                    if (confidence > 0) {
+                        try {
+                            addAlignCell(cl1.getIRI().toURI(), cl2.getIRI().toURI(), "=", confidence);
+                        } catch (Exception e) {
+                            System.out.println(e.toString());
+                        }
+                    }
+                }
+            }
+        } else {
+            for (OWLEntity cl1 : ontology1.getClassesInSignature()) {
+                for (OWLEntity cl2 : ontology2.getClassesInSignature()) {
+                    double confidence = matchDist(cl1, cl2);
+                    if (confidence > 0.7) {
+                        try {
+                            addAlignCell(cl1.getIRI().toURI(), cl2.getIRI().toURI(), "=", confidence);
+                        } catch (Exception e) {
+                            System.out.println(e.toString());
+                        }
+                    }
+                }
+            }
+            for (OWLEntity cl1 : ontology1.getDataPropertiesInSignature()) {
+                for (OWLEntity cl2 : ontology2.getDataPropertiesInSignature()) {
+                    double confidence = matchDist(cl1, cl2);
+                    if (confidence > 0.7) {
+                        try {
+                            addAlignCell(cl1.getIRI().toURI(), cl2.getIRI().toURI(), "=", confidence);
+                        } catch (Exception e) {
+                            System.out.println(e.toString());
+                        }
+                    }
+                }
+            }
+            for (OWLEntity cl1 : ontology1.getObjectPropertiesInSignature()) {
+                for (OWLEntity cl2 : ontology2.getObjectPropertiesInSignature()) {
+                    double confidence = matchDist(cl1, cl2);
+                    if (confidence > 0.7) {
+                        try {
+                            addAlignCell(cl1.getIRI().toURI(), cl2.getIRI().toURI(), "=", confidence);
+                        } catch (Exception e) {
+                            System.out.println(e.toString());
+                        }
                     }
                 }
             }
         }
-        for (OWLEntity cl1 : ontology1.getDataPropertiesInSignature()) {
-            for (OWLEntity cl2 : ontology2.getDataPropertiesInSignature()) {
-                double confidence = matchDist(cl1, cl2);
-                if (confidence > 0) {
-                    try {
-                        addAlignCell(cl1.getIRI().toURI(), cl2.getIRI().toURI(), "=", confidence);
-                    } catch (Exception e) {
-                        System.out.println(e.toString());
-                    }
-                }
-            }
-        }
-        for (OWLEntity cl1 : ontology1.getObjectPropertiesInSignature()) {
-            for (OWLEntity cl2 : ontology2.getObjectPropertiesInSignature()) {
-                double confidence = matchDist(cl1, cl2);
-                if (confidence > 0.7) {
-                    try {
-                        addAlignCell(cl1.getIRI().toURI(), cl2.getIRI().toURI(), "=", confidence);
-                    } catch (Exception e) {
-                        System.out.println(e.toString());
-                    }
-                }
-            }
-        }
-
-
 
     }
 
@@ -164,7 +202,7 @@ public class NewMatcher extends URIAlignment {
         }
         return 0.;
     }
-    
+
     public double matchDist(OWLEntity o1, OWLEntity o2) {
         ArrayList<OWLLiteral> labels1 = getLabels(o1, ontology1, "en");
         ArrayList<OWLLiteral> labels2 = getLabels(o2, ontology2, "en");
